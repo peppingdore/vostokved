@@ -25,7 +25,7 @@ for img in *.jpg *.jpeg; do
 	ffmpeg -i "minified/$img" -vf scale=640:-1 "minified/temp.jpg" -y
 	rm "minified/$img"
 	mv minified/temp.jpg "minified/$img"
-    jpegoptim --verbose --size=$TARGET --strip-all "minified/$img"
+    # jpegoptim --verbose --size=$TARGET --strip-all "minified/$img"
     echo
 done
 
