@@ -171,7 +171,7 @@ export default function App() {
             {openImages.map((image, idx) => (
               <button
                 key={idx}
-                className="relative group overflow-hidden rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg transition-shadow"
+                className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
                 onClick={() => setViewer(idx)}
                 aria-label={`Открыть фото ${idx + 1}`}
               >
