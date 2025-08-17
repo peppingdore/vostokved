@@ -11,20 +11,28 @@ const LINKS = {
   tg: "https://t.me/orient_Kazan",
 };
 
-const imageUrls = [
-  "https://picsum.photos/id/1015/1200/800",
-  "https://picsum.photos/id/1024/1200/800",
-  "https://picsum.photos/id/1035/1200/800",
-  "https://picsum.photos/id/1043/1200/800",
-  "https://picsum.photos/id/1050/1200/800",
-  "https://picsum.photos/id/106/1200/800",
-  "https://picsum.photos/id/1074/1200/800",
-  "https://picsum.photos/id/1084/1200/800",
-  "https://picsum.photos/id/1080/1200/800",
-  "https://picsum.photos/id/1081/1200/800",
-  "https://picsum.photos/id/1082/1200/800",
-  "https://picsum.photos/id/1083/1200/800",
+const imageNames = [
+"1AtLbVcBiFPKZEuTCTOx9gFzQznie4HBiwp1YJVjeRhycmSPwqNNrPsIuPRNLhFD_z69xW9gLAizZETYqjJUsjhK.jpg",
+"ATl47W9S5AaasdNPpoZoewMoNlW_I1jdz3BXYy90CVjYvtnf2JeX6vGWOz4WpZISkjkZIPg8bTAOJxKTf6FADXTK.jpg",
+"J4DQJadxvyYvUP1uSe8L-SlLPuks4IQ1L4h5oFWyp-95dl6qeEpZSYSWDcq2sQoyYMaKv4zx-PiBnVZkVDVSqjMx.jpg",
+"K8vNs4Zgc32Cny7HRCZLN5tU-xGFweeQShOL6tPVRKW9ocr-BNXRfs2WY9vUM3Ax1HqQWwgLGaJaRyhq0vufHJ-6.jpg",
+"QTV-ctw9FVMfuhdf3cwWXWwMTRx4sM16-W8iTbmGAaWwgcDM02g1OQ34PyJDAhOobD3KLIIYceLXTrxLve03lCfa.jpg",
+"RMScI_e7KxRljD5xBrrHvxzARwX0LckUXmBaH444TBbW2ly4U5sTPtrz7qI6OkhIBowiVlbUcULM1C9PsfSXXUJL.jpg",
+"ZpzyV8GtiwidYaMfDfgg8EspXjJMuVx_CqM71OkcNs_lsIJc80yBgVMQQ0aIBokCzLfNdetFMK7GgaECiyiXST_t.jpg",
+"dhxw4Yxge_wDHX71yeWM5Rz3-6TPrHZ9G0VYmZz2s5Rq9181er4KgVHQarX0q1jR7hp2Ib6-NnwMhfMF2u7g6wf8.jpg",
+"lYqOZZtjapn4_iLc5RFHd3sa2hSlSXfA7a6KV-gFnNPUZv10SYmpTfvjbfwZBtukBWAmpnA4Sd3GXwv7mGxP_qnj.jpg",
+"oHhb7WsLtrd0mNjnOrfUksYcF4rQu91A0EW8zV_5zQRsgaFlZuv0eBs_H9WdH26iVoY-kueCqjtegbB4DaXZLT5J.jpg",
+"vZCMueJYaHpFzP0Idsz6rhpQq8RD-gPaaCk9OaIP4nQ_yva62ivbk-kYS7wERboBPj3wv5bykxC2hjm_dOExKGtk.jpg",
+]
+
+var imageUrls: any[] = [
+  
 ];
+
+imageNames.forEach(it => {
+	imageUrls.push({min: "/images/minified/" + it, og: "/images/" + it})
+});
+
 
 const FORM_URL = "";
 
@@ -160,14 +168,14 @@ export default function App() {
           <p className="text-stone-600">Добавьте ссылки на изображения в массив <code>imageUrls</code></p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {openImages.map((src, idx) => (
+            {openImages.map((image, idx) => (
               <button
                 key={idx}
                 className="relative group overflow-hidden rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg transition-shadow"
                 onClick={() => setViewer(idx)}
                 aria-label={`Открыть фото ${idx + 1}`}
               >
-                <img src={src} alt={`Фото ${idx + 1}`} loading="lazy" className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <img src={image.min} alt={`Фото ${idx + 1}`} loading="lazy" className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
               </button>
             ))}
           </div>
@@ -176,7 +184,7 @@ export default function App() {
         {/* Лайтбокс */}
         {viewer !== null && (
           <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm grid place-items-center p-4">
-            <img src={openImages[viewer]} alt={`Фото ${viewer + 1}`} className="max-h-[85vh] w-auto rounded-3xl shadow-2xl animate-fadeIn" />
+            <img src={openImages[viewer].og} loading="lazy" alt={`Фото ${viewer + 1}`} className="max-h-[85vh] w-auto rounded-3xl shadow-2xl animate-fadeIn" />
             <button className="absolute top-4 right-4 text-white p-2 rounded-full bg-black/50 hover:bg-black/70" onClick={() => setViewer(null)}>
               <X className="h-6 w-6" />
             </button>
