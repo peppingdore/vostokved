@@ -4,7 +4,7 @@
 mkdir -p minified
 
 # Target size
-TARGET=20k
+TARGET=40k
 
 echo "=== Starting JPG minification to ≤ $TARGET each ==="
 echo "Input folder:  $(pwd)"
