@@ -4,7 +4,7 @@
 mkdir -p minified
 
 # Target size
-TARGET=40k
+TARGET=6k
 
 echo "=== Starting JPG minification to ≤ $TARGET each ==="
 echo "Input folder:  $(pwd)"
@@ -22,6 +22,7 @@ for img in *.jpg *.jpeg; do
     echo "  Copied to: minified/$img"
 
     # Run jpegoptim with size constraint
+	ffmpeg -i "minified/$img" -vf scale=640:-1 "minified/$img"
     jpegoptim --verbose --size=$TARGET --strip-all "minified/$img"
     echo
 done
