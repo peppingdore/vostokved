@@ -22,7 +22,7 @@ for img in *.jpg *.jpeg; do
     echo "  Copied to: minified/$img"
 
     # Run jpegoptim with size constraint
-	ffmpeg -i "minified/$img" -vf scale=640:-1 "minified/$img"
+	ffmpeg -i "minified/$img" -vf scale=640:-1 -pix_fmt rgb24 "minified/$img" -y
     jpegoptim --verbose --size=$TARGET --strip-all "minified/$img"
     echo
 done
