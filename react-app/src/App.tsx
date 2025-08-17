@@ -183,7 +183,7 @@ export default function App() {
 
         {/* Лайтбокс */}
         {viewer !== null && (
-          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm grid place-items-center p-4">
+          <div key={viewer} className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm grid place-items-center p-4">
             <img src={openImages[viewer].og} loading="lazy" alt={`Фото ${viewer + 1}`} className="max-h-[85vh] w-auto rounded-3xl shadow-2xl animate-fadeIn" />
             <button className="absolute top-4 right-4 text-white p-2 rounded-full bg-black/50 hover:bg-black/70" onClick={() => setViewer(null)}>
               <X className="h-6 w-6" />
