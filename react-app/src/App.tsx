@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useMemo, useState } from "react";
+// import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Images, Send, Users, CheckCircle, XCircle, Bug, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ExternalLink, Images, CheckCircle, XCircle, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // =======================
 // Настройки
@@ -86,7 +86,7 @@ function runDiagnostics() {
 // =======================
 export default function App() {
   const [viewer, setViewer] = useState<number | null>(null);
-  const [showDiag, setShowDiag] = useState(false);
+  const [showDiag, _] = useState(false);
 
   const now = new Date();
   const month = now.getMonth();
