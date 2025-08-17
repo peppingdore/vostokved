@@ -137,7 +137,7 @@ export default function App() {
             </a>
 			<a href="#request">
               <Button className={`rounded-3xl shadow-md flex items-center gap-2 bg-white hover:bg-stone-100 border  ${THEME.buttonText}`}>
-            	Участвовать в проекте
+            	Участвовать в проекте <ExternalLink className="h-4 w-4" />
               </Button>
             </a>
           </div>
