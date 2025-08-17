@@ -6,7 +6,7 @@ cd images
 ../minify_images.sh
 cd ..
 echo "minified"
-sudo cp -r images /var/www/react-app/images
+sudo cp -r images /var/www/react-app/
 echo "copied images"
 sudo cp -r react-app/dist/* /var/www/react-app/
 echo "copied build"
